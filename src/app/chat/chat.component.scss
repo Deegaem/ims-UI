@@ -1,12 +1,6 @@
-@import "../../styles-variables";
-
 @media all {
-  .myClass ul {
-    list-style: none;
-    padding-left: 0;
-  }
   /* Chat containers */
-  .container {
+  .mycontainer {
     border: 2px solid #dedede;
     background-color: #f1f1f1;
     border-radius: 5px;
@@ -14,35 +8,16 @@
     margin: 10px 0;
   }
   /* Clear floats */
-  .container::after {
+  .mycontainer::after {
     content: "";
     clear: both;
     display: table;
   }
-  /* Style time text */
-  .time-right {
+  .myscro {
+    overflow-y: scroll;
+  }
+  .time-text {
     float: right;
     color: #aaa;
-  }
-  /* Style time text */
-  .time-left {
-    float: left;
-    color: #999;
-  }
-}
-
-@media (min-width: map-get($grid-breakpoints, lg)) {
-  .myClass ul {
-    display: flex;
-    flex-direction: row;
-  }
-  .myClass li {
-    margin-right: 15px;
-  }
-}
-
-@media (max-width: map-get($grid-breakpoints, lg)) {
-  .myClass li {
-    margin-bottom: 15px;
   }
 }

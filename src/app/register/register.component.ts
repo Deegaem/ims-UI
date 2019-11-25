@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../shared/users.service';
-import { User } from '../domain/user';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -27,7 +26,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSave() {
-    console.log(this.registerForm.value);
     this.usersService.add(this.registerForm.value).subscribe(res => {
       this.router.navigate(['login']);
     });

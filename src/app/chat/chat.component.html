@@ -1,18 +1,20 @@
 <h1>Group Chat</h1>
 <hr><br>
-<div *ngFor="let chat of messages;">
-    <div class="container scrollbar">
-        <span class="time-right">{{chat.sender.name}}</span>
-        <p>{{chat.message}}</p>
-        <span class="time-right">{{chat.created | date:'medium'}}</span>
+<div class="myscro">
+    <div *ngFor="let chat of messages;">
+        <div class="mycontainer">
+            <span class="time-text">{{chat.sender.name}}</span>
+            <p>{{chat.message}}</p>
+            <span class="time-text">{{chat.created | date:'medium'}}</span>
+        </div>
     </div>
 </div>
 <form #sendMsg="ngForm" (ngSubmit)="onSubmit($event)">
     <div class="popup-messages-footer">
         <div class="form-group">
-            <input [(ngModel)]=" chatBox" name="chatBox" autocomplete="off" id="status_message"
-                placeholder="Type a message..."></div>
-        <div class="form-group myClass">
+            <input type="text" class="form-control" name="chatBox" id="status_message" placeholder="Type a message..."
+                [(ngModel)]=" chatBox"></div>
+        <div class="form-group mybuttonsULc">
             <ul>
                 <li>
                     <button type="submit" class="btn btn-outline-success btn-block"

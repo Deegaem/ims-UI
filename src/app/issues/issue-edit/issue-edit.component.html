@@ -23,13 +23,8 @@
         Assignee is missing
       </span>
     </div>
-    <div class="form-group myClass">
+    <div class="form-group mybuttonsULc">
       <ul>
-        <li>
-          <button type="button" class="btn btn-outline-success btn-block" [routerLink]="['/issues']">
-            <i class="fa fa-arrow-left"></i>
-          </button>
-        </li>
         <li>
           <button type="submit" class="btn btn-outline-success btn-block" [disabled]="!issueForm.valid">
             <i class="fa fa-save"></i>
@@ -38,6 +33,11 @@
         <li>
           <button type="button" class="btn btn-outline-success btn-block" (click)="deleteIssue()">
             <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn btn-outline-success btn-block" [routerLink]="['/issues']">
+            <i class="fa fa-arrow-left"></i>
           </button>
         </li>
       </ul>
@@ -49,20 +49,23 @@
       <textarea name="text" class="form-control" rows="5" id="comment" placeholder="Comment"
         [(ngModel)]="comment"></textarea>
     </div>
-    <div class="form-group myClass">
+    <div class="form-group mybuttonsULc">
       <ul>
         <li>
-          <button type="submit" class="btn btn-outline-success btn-block" [disabled]="!commentForm.form.valid">Submit</button>
+          <button type="submit" class="btn btn-outline-success btn-block"
+            [disabled]="!commentForm.form.valid">Submit</button>
         </li>
       </ul>
     </div>
   </form>
-  <ul>
-    <li *ngFor="let comment of issue.comments">
-      <b>
-        <u>{{comment.byUserName}}</u>
-      </b>
-      <p>{{comment.comment.text}}</p>
-    </li>
-  </ul>
+  <div class="mycommentsUlc">
+    <ul>
+      <li *ngFor="let comment of issue.comments">
+        <b>
+          <u>{{comment.byUserName}}</u>
+        </b>
+        <p>{{comment.comment.text}}</p>
+      </li>
+    </ul>
+  </div>
 </div>

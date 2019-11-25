@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Issue } from '../domain/issue';
-import { CommentInfo } from '../domain/comment';
 import { Comment } from '../domain/comment';
-import { User } from '../domain/user';
 
 @Injectable()
 export class IssuesService {

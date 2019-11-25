@@ -1,16 +1,9 @@
 @import "../styles-variables";
 
 @media all {
-  .myClass ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  .myClass {
+  .mymp {
     background-color: #fff;
-  }
-  .mymt {
     margin-top: 60px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 60px;
   }
 }

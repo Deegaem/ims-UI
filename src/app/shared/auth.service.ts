@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { User } from '../domain/user';
-
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Credential } from '../domain/credential';
 import { HttpClient } from '@angular/common/http';
@@ -17,7 +16,6 @@ export class AuthService {
   public get authenticated(): boolean {
     const token = this.jwtHelper.tokenGetter();
     if (token) {
-      // Check if saved token has not expired
       return !this.jwtHelper.isTokenExpired(token);
     }
     return false;
@@ -37,15 +35,12 @@ export class AuthService {
         this.user = new User();
         this.user.id = result.id;
         this.user.name = userCreds.username;
-        console.log(this.user);
         this.router.navigate(['issues']);
       },
       error => {
         console.log('login failed', error);
       });
   }
-
-  /* Logout in AuthService simply removes token */
   public logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('id');

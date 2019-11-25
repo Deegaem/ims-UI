@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-
 import { Issue } from '../../domain/issue';
 import { User } from '../../domain/user';
 import { IssuesService } from '../../shared/issues.service';
 import { UsersService } from '../../shared/users.service';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-issue-listing',

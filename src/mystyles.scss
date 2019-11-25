@@ -1,0 +1,27 @@
+@media all {
+  .mybuttonsULc ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .mycommentsUlc ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .mycommentsUlc u {
+    text-decoration: none;
+  }
+}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+  .mybuttonsULc ul {
+    display: flex;
+  }
+  .mybuttonsULc li {
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, lg)) {
+  .mybuttonsULc li {
+    margin-bottom: 15px;
+  }
+}

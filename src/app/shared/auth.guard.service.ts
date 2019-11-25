@@ -10,7 +10,6 @@ export class AuthGuardService implements CanActivate {
         private authService: AuthService) { }
 
     canActivate(route: ActivatedRouteSnapshot): boolean {
-        //logic to check if user is logged In
         if (this.authService.authenticated) {
             return true;
         }

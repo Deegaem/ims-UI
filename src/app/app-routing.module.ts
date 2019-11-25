@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { HomeComponent } from './home/home.component';
 import { IssueListingComponent } from './issues/issue-listing/issue-listing.component';
 import { IssueEditComponent } from './issues/issue-edit/issue-edit.component';

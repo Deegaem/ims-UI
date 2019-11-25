@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
-import { Issue } from '../../domain/issue';
 import { IssuesService } from '../../shared/issues.service';
 import { UsersService } from '../../shared/users.service';
-import { Observable } from 'rxjs';
 import { User } from '../../domain/user';
 
 @Component({
@@ -43,7 +40,6 @@ export class IssueAddComponent implements OnInit {
     console.log(this.issueForm.value);
     this.issuesService.add(this.issueForm.value).subscribe(res => {
       this.router.navigate(['issues']);
-      //this.reset();
     });
 
   }

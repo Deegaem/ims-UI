@@ -1,5 +1,5 @@
 <div class="container">
-    <table class="table table-striped">
+    <table class="table table-striped mydisplayTablec">
         <thead>
             <tr>
                 <th>#Id</th>
@@ -28,9 +28,23 @@
             </tr>
         </tbody>
     </table>
-    <div class="top-bar">
-
-    </div>
+    <ul class="list-group myMargin mydisplayUlc">
+        <li class="list-group-item" *ngFor="let issue of issues$ | async">
+            <div>
+                <strong>#Id: </strong>{{issue.id}}<br>
+                <strong>Label:</strong><a (click)="editIssue(issue)">
+                    {{issue.label}} - {{issue.description}}
+                </a><br>
+                <strong>Assigned To:</strong>
+                <a *ngIf="issue.assignedTo" (click)="showUserInfo(issue.assignedTo)">
+                    {{issue.assignedTo?.name}}
+                </a>
+                <small>{{issue.assignedTo?.email}}</small>
+                <br>
+                <strong>Created: </strong>{{issue.created | date}}
+            </div>
+        </li>
+    </ul>
     <div class="mybuttonsULc">
         <ul>
             <li>

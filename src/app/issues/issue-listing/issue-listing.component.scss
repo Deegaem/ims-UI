@@ -1,0 +1,17 @@
+@import "../../../styles-variables.scss";
+
+@media (max-width: map-get($grid-breakpoints, lg)) {
+  .mydisplayTablec {
+    display: none;
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, lg)) {
+  .mydisplayUlc {
+    display: none;
+  }
+}
+
+.myMargin li {
+  margin-bottom: 15px;
+}

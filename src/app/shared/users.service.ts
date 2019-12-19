@@ -9,15 +9,15 @@ export class UsersService {
     constructor(private http: HttpClient) { }
 
     public getAll(): Observable<Array<User>> {
-        return this.http.get<Array<User>>('http://localhost:8080/ims-users/resources/users');
+        return this.http.get<Array<User>>('http://192.168.1.106:8081/ims-users/resources/users');
     }
 
     public get(id: number): Observable<User> {
-        return this.http.get<User>(`http://localhost:8080/ims-users/resources/users/${id}`);
+        return this.http.get<User>(`http://192.168.1.106:8081/ims-users/resources/users/${id}`);
     }
 
     public add(user: User): Observable<any> {
-        return this.http.post('http://localhost:8080/ims-users/resources/users', user,
+        return this.http.post('http://192.168.1.106:8081/ims-users/resources/users', user,
             { responseType: 'text' }
         );
     }

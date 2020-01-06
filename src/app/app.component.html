@@ -1,30 +1,31 @@
 <div class="container">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Ims prototype</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item pb-xs-2 pb-sm-2 active">
-        <a class="nav-link" [routerLink]="['/home']">Home
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <li class="nav-item pb-xs-2 pb-sm-2">
-        <a class="nav-link" [routerLink]="['/issues']">Issues</a>
-      </li>
-    </ul>
-	    <ul class="nav navbar-nav mt-lg-0">
-      <li class="nav-item pb-xs-2 pb-sm-2">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Ims prototype</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/issues']">Issues</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="!authService.authenticated" [routerLink]="['/register']">Register</a>
+        </li>
+      <li class="nav-item">
         <a class="nav-link" *ngIf="!authService.authenticated" [routerLink]="['/login']">Login</a>
       </li>
-      <li class="nav-item pb-xs-2 pb-sm-2">
+      <li class="nav-item">
         <a class="nav-link" (click)="authService.logout()" *ngIf="authService.authenticated">Logout</a>
       </li>
     </ul>
-  </div>
-</nav>
+    </div>
+  </nav>
 <div class="mymp">
     <router-outlet></router-outlet>
 </div>

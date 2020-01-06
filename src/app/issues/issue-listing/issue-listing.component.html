@@ -6,15 +6,14 @@
                 <th>Label</th>
                 <th>Assigned To</th>
                 <th>Created</th>
+                <th>EditIssue</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let issue of issues$ | async">
                 <td>{{issue.id}}</td>
                 <td>
-                    <a class="btn" role="button" (click)="editIssue(issue)">
-                        <b>{{issue.label}}</b> - {{issue.description}}
-                    </a>
+                    <b>{{issue.label}}</b> - {{issue.description}}
                 </td>
                 <td>
                     <p>
@@ -25,6 +24,7 @@
                     </p>
                 </td>
                 <td>{{issue.created | date}}</td>
+                <td><a class="btn" role="button" (click)="editIssue(issue)"><i class="fa fa-edit"></i></a></td>
             </tr>
         </tbody>
     </table>
@@ -32,9 +32,9 @@
         <li class="list-group-item" *ngFor="let issue of issues$ | async">
             <div>
                 <strong>#Id: </strong>{{issue.id}}<br>
-                <strong>Label:</strong><a (click)="editIssue(issue)">
-                    {{issue.label}} - {{issue.description}}
-                </a><br>
+                <strong>Label:</strong>
+                {{issue.label}} - {{issue.description}}
+                <br>
                 <strong>Assigned To:</strong>
                 <a *ngIf="issue.assignedTo" (click)="showUserInfo(issue.assignedTo)">
                     {{issue.assignedTo?.name}}
@@ -42,6 +42,8 @@
                 <small>{{issue.assignedTo?.email}}</small>
                 <br>
                 <strong>Created: </strong>{{issue.created | date}}
+                <br>
+                <a (click)="editIssue(issue)"><i class="fa fa-edit"></i></a>
             </div>
         </li>
     </ul>
@@ -52,7 +54,11 @@
                     Issue</button>
             </li>
             <li>
-                <button type="button" class="btn btn-outline-success btn-block" [routerLink]="['/chat']">Group Chat
+                <button type="button" class="btn btn-outline-success btn-block" [routerLink]="['/chat']">Chat Room
+                </button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-outline-success btn-block" [routerLink]="['/home']">Cancel
                 </button>
             </li>
         </ul>

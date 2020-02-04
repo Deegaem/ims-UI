@@ -1,5 +1,4 @@
-<div class="container">
-<div class="issue-container" *ngIf="issue">
+<div class="container" *ngIf="issue">
   <form [formGroup]="issueForm" (ngSubmit)="onSave()">
     <div class="form-group">
       <input type="text" class="form-control" id="label" placeholder="Label" formControlName="label">
@@ -37,37 +36,16 @@
           </button>
         </li>
         <li>
+          <button type="button" class="btn btn-outline-success btn-block" (click)="goToComment()">
+            Issue Comments
+          </button>
+        </li>
+        <li>
           <button type="button" class="btn btn-outline-success btn-block" [routerLink]="['/issues']">
-            Cancel 
+            Cancel
           </button>
         </li>
       </ul>
     </div>
   </form>
-  <p>COMMENTS</p>
-  <form #commentForm="ngForm" (ngSubmit)="onComment(commentForm)">
-    <div class="form-group">
-      <textarea name="text" class="form-control" rows="5" id="comment" placeholder="Comment"
-        [(ngModel)]="comment"></textarea>
-    </div>
-    <div class="form-group mybuttonsULc">
-      <ul>
-        <li>
-          <button type="submit" class="btn btn-outline-success btn-block"
-            [disabled]="!commentForm.form.valid">Submit</button>
-        </li>
-      </ul>
-    </div>
-  </form>
-  <div class="mycommentsUlc">
-    <ul>
-      <li *ngFor="let comment of issue.comments">
-        <b>
-          <u>{{comment.byUserName}}</u>
-        </b>
-        <p>{{comment.comment.text}}</p>
-      </li>
-    </ul>
-  </div>
-</div>
 </div>

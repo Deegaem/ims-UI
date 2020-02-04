@@ -16,6 +16,7 @@ import { RegisterComponent } from './register/register.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuardService } from './shared/auth.guard.service';
 import { ChatComponent } from './chat/chat.component';
+import { CommentComponent } from './comment/comment.component';
 
 export function tokenGetterFn() {
   return localStorage.getItem('token');
@@ -28,7 +29,8 @@ export function tokenGetterFn() {
     FeedComponent,
     LoginComponent,
     RegisterComponent,
-    ChatComponent
+    ChatComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

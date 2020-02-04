@@ -1,0 +1,38 @@
+<div class="container">
+    <br>
+    <h4>COMMENTS</h4>
+    <br>
+    <form #commentForm="ngForm" (ngSubmit)="onComment(commentForm)">
+        <div class="form-group">
+            <textarea name="text" class="form-control" rows="5" id="comment" placeholder="Comment"
+                [(ngModel)]="comment"></textarea>
+        </div>
+        <div class="form-group mybuttonsULc">
+            <ul>
+                <li>
+                    <button type="submit" class="btn btn-outline-success btn-block"
+                        [disabled]="!commentForm.form.valid">Submit</button>
+                </li>
+                <li>
+                    <button type="button" class="btn btn-outline-success btn-block" (click)="backToIssue()">
+                        Back To Issue
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </form>
+    <br>
+    <div class="mycommentsUlc">
+        <ul>
+            <li *ngFor="let comment of commentsInfo">
+                <div class="card mycard">
+                    <h6 class="card-title time-text">{{comment.created | date:'medium'}}</h6>
+                    <h5 class="card-header">{{comment.byUserName}}</h5>
+                    <div class="card-body">
+                        <p class="card-text">{{comment.text}}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

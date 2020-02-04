@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { forkJoin } from "rxjs";
-import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { IssuesService } from '../../shared/issues.service';
 import { UsersService } from '../../shared/users.service';
-import { AuthService } from '../../shared/auth.service';
 import { Issue } from '../../domain/issue';
 import { User } from '../../domain/user';
-import { Comment } from '../../domain/comment';
 
 @Component({
   selector: 'app-issue-edit',
@@ -19,13 +16,12 @@ export class IssueEditComponent implements OnInit {
   issue: Issue;
   users: User[];
   public issueForm: FormGroup;
-  comment: string;
+  
 
   constructor(private router: Router,
     private route: ActivatedRoute,
     private usersService: UsersService,
     private issuesService: IssuesService,
-    private authService: AuthService,
     fb: FormBuilder) {
     this.issueForm = fb.group({
       id: null,
@@ -42,14 +38,10 @@ export class IssueEditComponent implements OnInit {
     });
 
     this.route.params.subscribe((params: Params) => {
-      let id = +params['id'];
+      let id =+ params['id'];
       console.log('loading issue', id);
-      let issueDetail = this.issuesService.get(id);
-      let issueComments = this.issuesService.getComments(id);
-
-      forkJoin([issueDetail, issueComments]).subscribe(results => {
-        this.issue = results[0];
-        this.issue.comments = results[1];
+      this.issuesService.get(id).subscribe(res => {
+        this.issue = res;
         console.log(this.issue);
         this.updateForm();
       });
@@ -77,22 +69,6 @@ export class IssueEditComponent implements OnInit {
 
   }
 
-  onComment(f: NgForm) {
-    let newComment = new Comment();
-    newComment.byUser = this.authService.currentUser.id;
-    newComment.forIssue = this.issue.id;
-    newComment.text = this.comment;
-    console.log('comment', JSON.stringify(this.comment));
-    this.issuesService.addComment(this.issue.id, newComment).subscribe(res => {
-      this.issue.comments.push(
-        {
-          byUserName: this.authService.currentUser.name,
-          comment: newComment
-        });
-        f.reset();
-    });
-  }
-
   deleteIssue() {
     if (confirm("Are you sure you wish to delete?")) {
       this.issuesService.delete(this.issue.id).subscribe(res => {
@@ -103,6 +79,10 @@ export class IssueEditComponent implements OnInit {
 
   backToList() {
     this.router.navigate(['/issues']);
+  }
+
+  goToComment(){
+    this.router.navigate(['/comment', this.issue.id]);
   }
 
   compareUser(user1, user2): boolean {

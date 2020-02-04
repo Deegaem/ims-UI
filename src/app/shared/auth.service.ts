@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  private BASE_URL = 'http://192.168.1.106:8081/ims-users/resources';
+  private BASE_URL = 'http://localhost:8081/ims-users/resources';
   private user: User;
 
   constructor(private jwtHelper: JwtHelperService,
@@ -46,7 +46,7 @@ export class AuthService {
     localStorage.removeItem('id');
     localStorage.removeItem('username');
 
-    this.router.navigate(['login']);
+    this.router.navigate(['home']);
   }
 
   public get currentUser(): User {

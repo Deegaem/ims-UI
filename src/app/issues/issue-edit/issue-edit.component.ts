@@ -72,7 +72,7 @@ export class IssueEditComponent implements OnInit {
   deleteIssue() {
     if (confirm("Are you sure you wish to delete?")) {
       this.issuesService.delete(this.issue.id).subscribe(res => {
-        this.backToList();
+             this.backToList();
       });
     }
   }

@@ -1,9 +1,10 @@
 @import "../styles-variables";
 
 @media all {
-  .mymp {
+  .my-class {
+    width: 80%;
     background-color: #fff;
-    padding-top: 10px;
-    padding-bottom: 15px;
+    padding: 30px 15px;
+    margin: 15px auto;
   }
 }

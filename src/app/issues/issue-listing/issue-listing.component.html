@@ -1,66 +1,68 @@
 <div class="container">
-    <table class="table table-striped mydisplayTablec">
-        <thead>
-            <tr>
-                <th>#Id</th>
-                <th>Label</th>
-                <th>Assigned To</th>
-                <th>Created</th>
-                <th>EditIssue</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let issue of issues$ | async">
-                <td>{{issue.id}}</td>
-                <td>
-                    <b>{{issue.label}}</b> - {{issue.description}}
-                </td>
-                <td>
-                    <p>
-                        <a class="btn" role="button" *ngIf="issue.assignedTo" (click)="showUserInfo(issue.assignedTo)">
-                            {{issue.assignedTo?.name}}
-                        </a>
-                        <small>{{issue.assignedTo?.email}}</small>
-                    </p>
-                </td>
-                <td>{{issue.created | date}}</td>
-                <td><a class="btn" role="button" (click)="editIssue(issue)"><i class="fa fa-edit"></i></a></td>
-            </tr>
-        </tbody>
-    </table>
-    <ul class="list-group myMargin mydisplayUlc">
-        <li class="list-group-item" *ngFor="let issue of issues$ | async">
-            <div>
-                <strong>#Id: </strong>{{issue.id}}<br>
-                <strong>Label:</strong>
-                {{issue.label}} - {{issue.description}}
-                <br>
-                <strong>Assigned To:</strong>
-                <a *ngIf="issue.assignedTo" (click)="showUserInfo(issue.assignedTo)">
-                    {{issue.assignedTo?.name}}
-                </a>
-                <small>{{issue.assignedTo?.email}}</small>
-                <br>
-                <strong>Created: </strong>{{issue.created | date}}
-                <br>
-                <a (click)="editIssue(issue)"><i class="fa fa-edit"></i></a>
-            </div>
-        </li>
-    </ul>
-    <div class="mybuttonsULc">
-        <ul>
-            <li>
-                <button type="button" class="btn btn-outline-success btn-block" (click)="createIssue()">New
-                    Issue</button>
-            </li>
-            <li>
-                <button type="button" class="btn btn-outline-success btn-block" [routerLink]="['/chat']">Chat Room
-                </button>
-            </li>
-            <li>
-                <button type="button" class="btn btn-outline-success btn-block" [routerLink]="['/home']">Cancel
-                </button>
+    <br>
+    <h4>Issue List</h4>
+    <br>
+    <div class="shadow-sm p-3 mb-5 bg-white rounded">
+        <table class="table table-striped mydisplayTablec">
+            <thead>
+                <tr>
+                    <th>#Id</th>
+                    <th>Label</th>
+                    <th>Assigned To</th>
+                    <th>Created</th>
+                    <th>EditIssue</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let issue of issues$ | async">
+                    <td>{{issue.id}}</td>
+                    <td>
+                        <b>{{issue.label}}</b> - {{issue.description}}
+                    </td>
+                    <td>
+                        <p>
+                            <a class="btn" role="button" *ngIf="issue.assignedTo"
+                                (click)="showUserInfo(issue.assignedTo)">
+                                {{issue.assignedTo?.name}}
+                            </a>
+                            <small>{{issue.assignedTo?.email}}</small>
+                        </p>
+                    </td>
+                    <td>{{issue.created | date}}</td>
+                    <td><a class="btn" role="button" (click)="editIssue(issue)"><i class="fa fa-edit"></i></a></td>
+                </tr>
+            </tbody>
+        </table>
+        <ul class="list-group myMargin mydisplayUlc">
+            <li class="list-group-item" *ngFor="let issue of issues$ | async">
+                <div>
+                    <strong>#Id: </strong>{{issue.id}}<br>
+                    <strong>Label:</strong>
+                    {{issue.label}} - {{issue.description}}
+                    <br>
+                    <strong>Assigned To:</strong>
+                    <a *ngIf="issue.assignedTo" (click)="showUserInfo(issue.assignedTo)">
+                        {{issue.assignedTo?.name}}
+                    </a>
+                    <small>{{issue.assignedTo?.email}}</small>
+                    <br>
+                    <strong>Created: </strong>{{issue.created | date}}
+                    <br>
+                    <a (click)="editIssue(issue)"><i class="fa fa-edit"></i></a>
+                </div>
             </li>
         </ul>
+        <div class="mybuttonsULc">
+            <ul>
+                <li>
+                    <button type="button" class="btn btn-outline-success btn-block" (click)="createIssue()">Add
+                        Issue</button>
+                </li>
+                <li>
+                    <button type="button" class="btn btn-outline-success btn-block" [routerLink]="['/chat']">Chat Room
+                    </button>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

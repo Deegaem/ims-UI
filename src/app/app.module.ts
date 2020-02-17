@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { FeedComponent } from './home/feed/feed.component';
 import { IssuesModule } from './issues/issues.module';
 import { IssuesService } from './shared/issues.service';
 import { UsersService } from './shared/users.service';
@@ -29,7 +28,6 @@ export function tokenGetterFn() {
   declarations: [
     AppComponent,
     HomeComponent,
-    FeedComponent,
     LoginComponent,
     RegisterComponent,
     ChatComponent,

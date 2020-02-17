@@ -1,23 +1,11 @@
 @media all {
-  /* Chat containers */
-  .mycontainer {
-    border: 2px solid #dedede;
-    background-color: #F9F9FA;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
-  }
-  /* Clear floats */
-  .mycontainer::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  .myscro {
-    overflow-y: scroll;
-  }
   .time-text {
     float: right;
     color: #aaa;
+  }
+  .mycard {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
   }
 }

@@ -10,6 +10,9 @@
   .mycommentsUlc u {
     text-decoration: none;
   }
+  .my-bg-dark {
+    background-color: #035aa6;
+  }
 }
 @media (min-width: map-get($grid-breakpoints, lg)) {
   .mybuttonsULc ul {
@@ -24,7 +27,7 @@
   .mybuttonsULc li {
     margin-bottom: 15px;
   }
-  .nav-link{
+  .nav-link {
     display: block;
     padding: 8px 16px;
   }

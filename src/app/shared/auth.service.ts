@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  private BASE_URL = 'http://104.248.47.93:8081/ims-users/resources';
+  private BASE_URL = 'https://users.ims-prototype.ch/ims-users/resources';
   private user: User;
 
   constructor(private jwtHelper: JwtHelperService,

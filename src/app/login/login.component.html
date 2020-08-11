@@ -1,38 +1,34 @@
-<div class="container">
-  <br>
-  <h4>Login</h4>
-  <br>
-  <div class="shadow-sm p-3 mb-5 bg-white rounded">
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
-      <div class="row">
-        <div class="col-lg-6 col-xs-12">
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter username"
-              formControlName="username">
-          </div>
-        </div>
-        <div class="col-lg-6 col-xs-12">
-          <div class="form-group">
-            <label for="passwowrd">Password</label>
-            <input type="password" class="form-control" id="passwowrd" placeholder="Enter password"
-              formControlName="password">
-          </div>
+<br>
+<h4>Login</h4>
+<br>
+<div class="shadow-sm p-3 mb-5 bg-white rounded">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="row">
+      <div class="col-lg-6 col-xs-12">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" placeholder="Enter username" formControlName="username">
         </div>
       </div>
-      <div class="form-group mybuttonsULc">
-        <ul>
-          <li>
-            <button type="submit" class="btn btn-outline-success btn-block"
-              [disabled]="!loginForm.valid">Submit</button>
-          </li>
-          <li>
-            <button type="button" class="btn btn-outline-success btn-block" [routerLink]="['/home']">
-              Cancel
-            </button>
-          </li>
-        </ul>
+      <div class="col-lg-6 col-xs-12">
+        <div class="form-group">
+          <label for="passwowrd">Password</label>
+          <input type="password" class="form-control" id="passwowrd" placeholder="Enter password"
+            formControlName="password">
+        </div>
       </div>
-    </form>
-  </div>
+    </div>
+    <div class="form-group mybuttonsULc">
+      <ul>
+        <li>
+          <button type="submit" class="btn btn-outline-success btn-block" [disabled]="!loginForm.valid">Submit</button>
+        </li>
+        <li>
+          <button type="button" class="btn btn-outline-success btn-block" [routerLink]="['/home']">
+            Cancel
+          </button>
+        </li>
+      </ul>
+    </div>
+  </form>
 </div>

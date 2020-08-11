@@ -18,4 +18,38 @@ $theme-colors: (
 @import "../node_modules/bootstrap/scss/badge";
 @import "../node_modules/bootstrap/scss/modal";
 @import "styles-variables";
-@import "./mystyles.scss";
+
+@media all {
+  .mybuttonsULc ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .mycommentsUlc ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .mycommentsUlc u {
+    text-decoration: none;
+  }
+  .my-bg-dark {
+    background-color: #035aa6;
+  }
+}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+  .mybuttonsULc ul {
+    display: flex;
+  }
+  .mybuttonsULc li {
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, lg)) {
+  .mybuttonsULc li {
+    margin-bottom: 15px;
+  }
+  .nav-link {
+    display: block;
+    padding: 8px 16px;
+  }
+}

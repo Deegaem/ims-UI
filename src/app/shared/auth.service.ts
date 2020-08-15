@@ -46,7 +46,7 @@ export class AuthService {
     localStorage.removeItem('id');
     localStorage.removeItem('username');
 
-    this.router.navigate(['home']);
+    this.router.navigate(['login']);
   }
 
   public get currentUser(): User {
